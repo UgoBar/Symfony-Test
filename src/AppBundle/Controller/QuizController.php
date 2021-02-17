@@ -60,9 +60,13 @@ class QuizController extends Controller
             // Récupération des questions
             $questions = $quizData[$i]['question'];
 
+            // A ESSAYER DEMAIN :
+            // ATTRIBUER DES REPONSES PAR RAPPORT AUX QUESTIONS
+            // EN FONCTION DE CHAQUE ITERATION DE BOUCLE
+            // VOIR LE PROPERTY ACCESSOR
+
             // Récupération des réponses et de leurs valeurs
             $answersArray = $quizData[$i]['answers'];
-            
             foreach($answersArray as $key => $values)  {
                 //dump($values);
                 foreach($values as $key => $value) {
@@ -76,7 +80,7 @@ class QuizController extends Controller
             }
 
             $form->add('question'.$i, ChoiceType::class, [
-                'choices' => [$answer => $response],
+                'choices' => ['a' => false], // donnée en dur pour tester
                 'expanded' => true,
                 'multiple' => false,
                 'label' => 'Quelle est la '.$questions,
