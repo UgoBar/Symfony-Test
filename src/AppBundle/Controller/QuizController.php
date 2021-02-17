@@ -62,18 +62,21 @@ class QuizController extends Controller
 
             // Récupération des réponses et de leurs valeurs
             $answersArray = $quizData[$i]['answers'];
-            // for($i=0 ; $i < count($answersArray) ; $i++) {
-
-            // }
-            foreach($answersArray as $key => $value)  {
-                dump($value);
-                foreach($value as $key => $value) {
-                    //dump($value);
+            
+            foreach($answersArray as $key => $values)  {
+                //dump($values);
+                foreach($values as $key => $value) {
+                    if($key == 'text') {
+                        $answer = $value;
+                    }
+                    if($key == 'response') {
+                        $response = $value;
+                    }
                 }
             }
 
             $form->add('question'.$i, ChoiceType::class, [
-                'choices' => ['a' => true, 'b' => false, 'c' => false],
+                'choices' => [$answer => $response],
                 'expanded' => true,
                 'multiple' => false,
                 'label' => 'Quelle est la '.$questions,
