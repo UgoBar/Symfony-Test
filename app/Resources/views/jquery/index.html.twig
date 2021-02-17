@@ -1,0 +1,17 @@
+{% extends 'bootstrap4.html.twig' %}
+
+{% block body %}
+
+    <div id="message">Hello world !</div>
+
+
+{% endblock %}
+
+
+{% block javascripts %}
+<script>
+    $(function() {
+        alert($('message').text);
+    });
+</script>
+{% endblock %}

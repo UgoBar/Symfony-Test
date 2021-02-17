@@ -1,0 +1,19 @@
+Projet Symfony 3.4 d'évaluation :
+
+Après installation : créer une base de donnée
+puis installer les fixtures : doctrine:fixtures:load
+
+AppBundle contient 4 Controller 
+Lisez le code, les exercices s'y trouvent
+
+/
+/test
+/doctrine
+/form
+/fizzbuzz
+/jquery/
+/jquery/click
+/php/
+/php/score
+/quiz/
+/quiz/result

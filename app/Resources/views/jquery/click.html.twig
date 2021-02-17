@@ -1,0 +1,23 @@
+{% extends 'bootstrap4.html.twig' %}
+
+{% block body %}
+
+    <div class="image">
+        <img src="https://goo.gl/kjzfbE" alt="First">
+        <button class="remove">X</button>
+    </div>
+    <div class="image">
+        <img src="https://goo.gl/d2JncW" alt="Second">
+        <button class="remove">X</button>
+    </div>
+
+{% endblock %}
+
+{% block javascripts %}
+<script>
+    $(function() {
+        // écrire du code jquery :
+        // supprimer la div "image" quand on clique sur le bouton "x"
+    });
+</script>
+{% endblock %}
