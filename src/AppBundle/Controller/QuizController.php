@@ -107,10 +107,10 @@ class QuizController extends Controller
                     if($dataValue === true) {
                         
                         // $scores[$dataKey] = $baseScore[0];
-                        // foreach($baseScore as $key => $valuePerQuestion) {
+                        foreach($baseScore as $key => $valuePerQuestion) {
                         //     // $scores[$key] = $valuePerQuestion;
                         //     dump($valuePerQuestion);
-                        // }
+                        }
                         //$totalScore += $score;
                         // $baseScore[0];
                         
