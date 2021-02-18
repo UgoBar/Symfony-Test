@@ -58,8 +58,14 @@ class DefaultController extends Controller
 
         $form = $form->getForm();
 
-        // something is missing !
-        // PLEASE DO SOMETHING
+        $form->handleRequest($request);
+
+        if ($form->isSubmitted() && $form->isValid()) {
+            
+            $data = $form->getData();
+
+            $this->redirectToRoute('quiz');
+        }
 
         $data = $form->getData();
 

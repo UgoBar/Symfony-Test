@@ -29,7 +29,7 @@ class QuizController extends Controller
                     ['text' => 'c', 'response' => false],
                     ['text' => 'd', 'response' => false],
                 ],
-                'score' => 10
+                'score' => 50
             ],
             [
                 'question' => 'deuxième lettre de l\'alphabet ?',
@@ -55,33 +55,31 @@ class QuizController extends Controller
 
         // Coder la function groupByName
         $form = $this->createFormBuilder([]);
-
-        // Récupérations des questions et des réponses
+        $data = ''; // Initialisation des data vide
+        $totalScore = 0; // Initialisation du score total à 0
 
         $propertyAccessor = PropertyAccess::createPropertyAccessor();
 
+        // Récupérations des questions et des réponses
         for($i=0 ; $i < count($quizData) ; $i++) {
 
             // Récupération des questions
             $questions = $propertyAccessor->getValue($quizData, "[$i][question]");
-            dump($questions);
-            // récupération du score de la question 
-            $scores = $propertyAccessor->getValue($quizData, "[$i][score]");
-            dump($scores);
-            
-            // Récupération des réponses et de leurs valeurs
+            // récupération du score de la question
+            $baseScore[$questions] = $propertyAccessor->getValue($quizData, "[$i][score]");
+            // dump($baseScore);
+
+            // Récupération des choix et des réponses
             $answersArray = $quizData[$i]['answers'];
             for($t=0 ; $t < count($answersArray) ; $t++) {
-                
-                // Réponses
-                $answers = $propertyAccessor->getValue($answersArray, "[$t][text]"); // dump($answers);
-                
-                // Valeurs
-                $response = $propertyAccessor->getValue($answersArray, "[$t][response]"); // dump($response);
+
+                // Récupération des choix en tant que clefs et des réponses en tant que valeurs dans un tableau
+                $radioData[$propertyAccessor->getValue($answersArray, "[$t][text]")] = $propertyAccessor->getValue($answersArray, "[$t][response]");
+                // dump($radioData);
 
                 // Ajout des données dans le formulaire
                 $form->add('question'.$i, ChoiceType::class, [
-                    'choices' => [$answers => $response], 
+                    'choices' => $radioData,
                     'expanded' => true,
                     'multiple' => false,
                     'label' => 'Quelle est la '.$questions,
@@ -89,22 +87,50 @@ class QuizController extends Controller
             }
         }
 
-        
         $form->add('submit', SubmitType::class, ['label' => 'Envoyer']);
         $form = $form->getForm();
-
+        $form->handleRequest($request);
 
         if($request->getMethod() === Request::METHOD_POST) {
 
-            /**
-             * HANDLE FORM HERE
-             */
+            if ($form->isSubmitted() && $form->isValid()) {
 
-            $this->redirectToRoute('quiz_result');
+                // Récupération des données envoyées par le formulaire
+                $data = $form->getData();
+                dump($data);
+
+                // Rangement des scores par questions dans le tableau des data
+                // Calcul du score total
+                foreach($data as $dataKey => $dataValue) {
+
+                    // Si la réponse est juste on récupère la valeur du score de la question
+                    if($dataValue === true) {
+                        
+                        // $scores[$dataKey] = $baseScore[0];
+                        // foreach($baseScore as $key => $valuePerQuestion) {
+                        //     // $scores[$key] = $valuePerQuestion;
+                        //     dump($valuePerQuestion);
+                        // }
+                        //$totalScore += $score;
+                        // $baseScore[0];
+                        
+                    }
+                    else {
+                        $scores[$dataKey] = 0 ;
+                    }
+                }
+
+                dump($baseScore);
+                $scores = 0;
+                dump($scores);
+                dump($totalScore);
+                $this->redirectToRoute('quiz_result');
+            }
         }
 
         return $this->render('quiz/index.html.twig', [
             'form' => $form->createView(),
+            'data' => $data,
         ]);
     }
 
@@ -114,6 +140,8 @@ class QuizController extends Controller
     public function resultIndex(Request $request)
     {
         $score = 0;
+
+
 
         return $this->render('quiz/result.html.twig', [
             'score' => $score,
