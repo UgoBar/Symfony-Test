@@ -31,6 +31,7 @@ class DefaultController extends Controller
     {
         // Error
         // PLEASE DO SOMETHING
+        return $this->render('default/test.html.twig');
     }
 
     /**
