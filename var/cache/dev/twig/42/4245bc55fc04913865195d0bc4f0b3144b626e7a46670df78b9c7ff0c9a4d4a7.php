@@ -64,8 +64,6 @@ class __TwigTemplate_444bdfe33bf55bd74969c47992f6efd8bb3d574359e25c1dac9520d4ef0
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02 = $this->extensions["Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension"];
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->enter($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "body"));
 
-        // line 6
-        echo "    <div class=\"container\">";
         // line 7
         echo         $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->renderBlock((isset($context["form"]) || array_key_exists("form", $context) ? $context["form"] : (function () { throw new RuntimeError('Variable "form" does not exist.', 7, $this->source); })()), 'form_start');
         // line 8
@@ -75,13 +73,11 @@ class __TwigTemplate_444bdfe33bf55bd74969c47992f6efd8bb3d574359e25c1dac9520d4ef0
         // line 11
         if (((twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, (isset($context["app"]) || array_key_exists("app", $context) ? $context["app"] : (function () { throw new RuntimeError('Variable "app" does not exist.', 11, $this->source); })()), "request", []), "method", []) == "POST") && (isset($context["data"]) || array_key_exists("data", $context) ? $context["data"] : (function () { throw new RuntimeError('Variable "data" does not exist.', 11, $this->source); })()))) {
             // line 12
-            echo "            good job !";
+            echo "        good job !";
         } else {
             // line 14
-            echo "            submit something please";
+            echo "        submit something please";
         }
-        // line 16
-        echo "    </div>";
         
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->leave($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof);
 
@@ -102,7 +98,7 @@ class __TwigTemplate_444bdfe33bf55bd74969c47992f6efd8bb3d574359e25c1dac9520d4ef0
 
     public function getDebugInfo()
     {
-        return array (  84 => 16,  81 => 14,  78 => 12,  76 => 11,  74 => 9,  72 => 8,  70 => 7,  68 => 6,  59 => 5,  49 => 1,  47 => 2,  27 => 1,);
+        return array (  79 => 14,  76 => 12,  74 => 11,  72 => 9,  70 => 8,  68 => 7,  59 => 5,  49 => 1,  47 => 2,  27 => 1,);
     }
 
     public function getSourceContext()
@@ -112,17 +108,17 @@ class __TwigTemplate_444bdfe33bf55bd74969c47992f6efd8bb3d574359e25c1dac9520d4ef0
 
 
 {% block body %}
-    <div class=\"container\">
-        {{ form_start(form) }}
-        {{ form_rest(form) }}
-        {{ form_end(form) }}
 
-        {% if app.request.method == 'POST' and data %}
-            good job !
-        {% else %}
-            submit something please
-        {% endif %}
-    </div>
+    {{ form_start(form) }}
+    {{ form_rest(form) }}
+    {{ form_end(form) }}
+
+    {% if app.request.method == 'POST' and data %}
+        good job !
+    {% else %}
+        submit something please
+    {% endif %}
+
 {% endblock %}
 
 

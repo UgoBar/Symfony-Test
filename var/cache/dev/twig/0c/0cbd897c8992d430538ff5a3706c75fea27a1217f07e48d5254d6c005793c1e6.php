@@ -54,21 +54,20 @@ class __TwigTemplate_efafa60ef7fac8a7d84129f8c009d80b3cb8f91ef5195b4b29c72b3cd9e
 </head>
 <body>
 
-<div class=\"container\">
+
     <h1>Quizz So Buzz</h1>";
         // line 17
         $this->displayBlock('body', $context, $blocks);
         // line 19
-        echo "</div>
-
+        echo "
 <!-- Optional JavaScript -->
 <!-- jQuery first, then Popper.js, then Bootstrap JS -->
 <script src=\"https://code.jquery.com/jquery-3.3.1.slim.min.js\" integrity=\"sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo\" crossorigin=\"anonymous\"></script>
 <script src=\"https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js\" integrity=\"sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49\" crossorigin=\"anonymous\"></script>
 <script src=\"https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js\" integrity=\"sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy\" crossorigin=\"anonymous\"></script>";
-        // line 26
+        // line 25
         $this->displayBlock('javascripts', $context, $blocks);
-        // line 29
+        // line 28
         echo "</body>
 </html>";
         
@@ -96,7 +95,7 @@ class __TwigTemplate_efafa60ef7fac8a7d84129f8c009d80b3cb8f91ef5195b4b29c72b3cd9e
 
     }
 
-    // line 26
+    // line 25
     public function block_javascripts($context, array $blocks = [])
     {
         $__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e = $this->extensions["Symfony\\Bundle\\WebProfilerBundle\\Twig\\WebProfilerExtension"];
@@ -120,7 +119,7 @@ class __TwigTemplate_efafa60ef7fac8a7d84129f8c009d80b3cb8f91ef5195b4b29c72b3cd9e
 
     public function getDebugInfo()
     {
-        return array (  100 => 26,  83 => 17,  72 => 29,  70 => 26,  62 => 19,  60 => 17,  43 => 1,);
+        return array (  99 => 25,  82 => 17,  71 => 28,  69 => 25,  62 => 19,  60 => 17,  43 => 1,);
     }
 
     public function getSourceContext()
@@ -139,11 +138,10 @@ class __TwigTemplate_efafa60ef7fac8a7d84129f8c009d80b3cb8f91ef5195b4b29c72b3cd9e
 </head>
 <body>
 
-<div class=\"container\">
+
     <h1>Quizz So Buzz</h1>
     {% block body %}
     {% endblock %}
-</div>
 
 <!-- Optional JavaScript -->
 <!-- jQuery first, then Popper.js, then Bootstrap JS -->

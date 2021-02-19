@@ -3,17 +3,17 @@
 
 
 {% block body %}
-    <div class="container">
-        {{ form_start(form) }}
-        {{ form_rest(form) }}
-        {{ form_end(form) }}
 
-        {% if app.request.method == 'POST' and data %}
-            good job !
-        {% else %}
-            submit something please
-        {% endif %}
-    </div>
+    {{ form_start(form) }}
+    {{ form_rest(form) }}
+    {{ form_end(form) }}
+
+    {% if app.request.method == 'POST' and data %}
+        good job !
+    {% else %}
+        submit something please
+    {% endif %}
+
 {% endblock %}
 
 

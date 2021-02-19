@@ -1,1 +1,20 @@
 {% extends 'bootstrap4.html.twig' %}
+
+{% block body %}
+
+{% if totalScore == 0 %}
+    <h2>Raté !</h2>
+{% else %}
+    <h2>Bravo !</h2>
+{% endif %}
+
+<p>Votre score est de <strong>{{ totalScore }}</strong></p>
+
+<h3>Détails de votre score :</h3>
+<ul>
+    {% for key, detail in scorePerQuestion %}
+        <li>{{ key }} : {{ detail }}</li>
+    {% endfor %}
+</ul>
+
+{% endblock %}
