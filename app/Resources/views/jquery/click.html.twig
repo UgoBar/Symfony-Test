@@ -16,8 +16,20 @@
 {% block javascripts %}
 <script>
     $(function() {
+        // Et ben ? :o
         // écrire du code jquery :
         // supprimer la div "image" quand on clique sur le bouton "x"
+
+        //Allé la solution :)
+        $('.remove').on('click', function(){
+           //T'as ton event, du coup tu fais en fonction
+           //Tu cherche la div la plus proche portant la class image
+
+           var maDiv = $(this).closest('.image');
+
+           //et tu la vire
+            maDiv.remove();
+        });
     });
 </script>
 {% endblock %}

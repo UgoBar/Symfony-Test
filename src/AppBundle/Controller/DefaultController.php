@@ -31,6 +31,8 @@ class DefaultController extends Controller
     {
         // Error
         // PLEASE DO SOMETHING
+
+        //Il était ici demandé de corriger l'erreur. Il fallait retourner le template "test.html.twig" disponible dans les views/default
         return $this->render('default/test.html.twig');
     }
 
@@ -65,7 +67,12 @@ class DefaultController extends Controller
             
             $data = $form->getData();
 
-            $this->redirectToRoute('quiz');
+            //$this->redirectToRoute('quiz');
+            //Je ne sais pas ce que tu as voulu faire ici, pour renvoyer vers la route du quiz il aurait fallut déjà,
+            // donner la bon nom de la route c'est à dire "quiz_index"
+            //et surtout faire un return sinon symfony ne comprends pas ce qu'il doit faire
+
+            return $this->redirectToRoute('quiz_index');
         }
 
         $data = $form->getData();
@@ -98,6 +105,8 @@ class DefaultController extends Controller
 
         for($i=1 ; $i<=100 ; $i++)
         {
+            //Parfait ! Tu as bien compris le principe de l'exerice et l'algo est top :)
+
             $buzz = new Buzz();
             if($i%3 === 0 && $i%5 === 0) {
                 $buzz->setName('fizzbuzz');
@@ -137,6 +146,9 @@ class DefaultController extends Controller
 
         // Greedy : Too many request
         // PLEASE DO SOMETHING !
+
+        // Rien de spé ici, tu pouvais modifier la fonction utilisé sur le repo pour ne retourner que le dernier fizz
+        // enregistré mais ce n'étais pas important.
 
         return $this->getDoctrine()->getRepository(Fizz::class)->findAll();
     }

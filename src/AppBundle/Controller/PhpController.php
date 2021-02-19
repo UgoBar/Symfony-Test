@@ -38,6 +38,8 @@ class PhpController extends Controller
          * En sortie un tableau associatif : key : owner, value : array of file
          */
 
+        //Yep niquel ! :)
+
         $result = [];
         foreach($array as $file => $owner) {
             if(isset($result[$owner])) {
@@ -107,6 +109,8 @@ class PhpController extends Controller
          * entry : [ key : value ]
          *
          */
+
+        //TB :)
 
         $total = 0;
         foreach($entry as $key => $value) {

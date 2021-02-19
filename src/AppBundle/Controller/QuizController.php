@@ -57,6 +57,8 @@ class QuizController extends Controller
         $form = $this->createFormBuilder();
         $data = ''; // Initialisation des datas vide
 
+        //Je ne connaissais pas cette utilisation mais c'est joli, peu être un peu compliqué pour pas grand chose
+        //Mais belle illustration de ta compréhension :)
         $propertyAccessor = PropertyAccess::createPropertyAccessor();
 
         // Récupérations des questions et des réponses
@@ -128,6 +130,8 @@ class QuizController extends Controller
             }
         }
 
+        //au top :)
+
         return $this->render('quiz/index.html.twig', [
             'form' => $form->createView(),
             'data' => $data,
@@ -139,6 +143,8 @@ class QuizController extends Controller
      */
     public function resultIndex(Request $request)
     {
+        //Rien à dire, top :)
+
         // Récupération des données insérées dans la session
         $session = $this->container->get('session');
 
