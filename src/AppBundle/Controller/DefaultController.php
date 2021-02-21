@@ -121,8 +121,7 @@ class DefaultController extends Controller
         }
 
         $manager->persist($fizz);
-        $manager->flush();    
-
+        $manager->flush();
 
         return $this->render('default/doctrine.html.twig', [
             'fizzs' => $this->getDoctrine()->getRepository(Fizz::class)->findBy(['name' => 'fizzbuzz']),
